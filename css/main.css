@@ -1,0 +1,29 @@
+/* CSS Document */
+@font-face {
+    font-family: 'apex_newmedium';
+    src: url('font/apexnew-medium-webfont.eot');
+    src: url('font/apexnew-medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/apexnew-medium-webfont.woff') format('woff'),
+         url('font/apexnew-medium-webfont.ttf') format('truetype'),
+         url('font/apexnew-medium-webfont.svg#apex_newmedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+ }
+
+#header-tlv{
+	background-image:url(../images/bkg-header.gif); background-repeat:repeat-x;
+	height:99px;
+	text-align:center;
+}
+#header-sub-tlv{
+	background-image:url(../images/bkg-header2.gif); background-repeat:repeat-x;
+	height:31px;
+	text-align:center;
+	font-family:'apex_newmedium';
+	text-transform:uppercase;
+	color:#FFFFFF;
+	font-size:12px;
+	line-height:30px;
+	letter-spacing:1px;
+}
+#header-sub-tlv .tiret{color:#8bcdfa}
