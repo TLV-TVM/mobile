@@ -1,4 +1,5 @@
 /* CSS Document */
+body{margin:0px;padding:0px}
 @font-face {
     font-family: 'apex_newmedium';
     src: url('font/apexnew-medium-webfont.eot');
@@ -11,12 +12,12 @@
  }
 
 #header-tlv{
-	background-image:url(../images/bkg-header.gif); background-repeat:repeat-x;
-	height:99px;
+	background-image:url(../img/bkg-header.png); background-repeat:repeat-x;
+ 
 	text-align:center;
 }
 #header-sub-tlv{
-	background-image:url(../images/bkg-header2.gif); background-repeat:repeat-x;
+	background-image:url(../img/bkg-header2.png); background-repeat:repeat-x;
 	height:31px;
 	text-align:center;
 	font-family:'apex_newmedium';
@@ -26,10 +27,10 @@
 	line-height:30px;
 	letter-spacing:1px;
 }
-#header-sub-tlv .tiret{color:#8bcdfa}
+#header-sub-tlv .tiret{color:#8bcdfa; font-weight:bold; font-size:14px}
 
 
 
-.page-tlv{background-color:#004787; color:#FFFFFF; font-family:'apex_newmedium'; font-size:11px}
+.page-tlv{background-color:#004787; color:#FFFFFF; font-family:'apex_newmedium'; font-size:11px; height:100%}
 
 #footer-tlv{background-color:#004787; text-align:center}
