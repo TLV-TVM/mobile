@@ -1,5 +1,10 @@
 /* CSS Document */
-body{margin:0px;padding:0px}
+html, body {
+    height : 100%;
+	/*margin:0px;padding:0px; */
+	background-color:#004484  !important; 
+
+}
 @font-face {
     font-family: 'apex_newmedium';
     src: url('font/apexnew-medium-webfont.eot');
@@ -13,8 +18,7 @@ body{margin:0px;padding:0px}
 
 #header-tlv{
 	background-image:url(../img/bkg-header.png); background-repeat:repeat-x;
- 
-	text-align:center;
+ 	text-align:center;
 }
 #header-sub-tlv{
 	background-image:url(../img/bkg-header2.png); background-repeat:repeat-x;
@@ -31,6 +35,54 @@ body{margin:0px;padding:0px}
 
 
 
-.page-tlv{background-color:#004787; color:#FFFFFF; font-family:'apex_newmedium'; font-size:11px; height:100%}
+#footer-tlv{  text-align:center}
 
-#footer-tlv{background-color:#004787; text-align:center}
+
+/***** TLV ******/
+ 
+body.portrait{
+	 background-color:#004484  !important;
+   /* background: url(img/bg-appli.png) !important ;
+    background-repeat:no-repeat  !important ;
+    background-position:center center  !important ;
+    background-attachment:scroll !important ;
+    background-size:100% 100% !important ;*/
+ 
+}
+body.lanscape{
+ background-color:#004484 !important;
+ /*	background: url(img/bg-appli-landscape.png) !important ;  !important;
+    background-repeat:no-repeat  !important ;
+    background-position:center center  !important ;
+    background-attachment:scroll !important ;
+    background-size:100% 100% !important ;*/
+}
+.ui-page {
+    background: transparent !important;
+}
+.page-tlv{
+/*    background: transparent;*/
+	/*height:auto !important;*/
+	border:#00FF00 0px solid;
+	background: url(../img/bg-appli-content.png)   !important ;
+	background-repeat:repeat-x !important;
+ 	 background-size:cover;
+	min-height:480px;
+	color:#FFFFFF; 
+	font-family:'apex_newmedium'; 
+	font-size:11px; 
+}
+ 
+ 
+ 
+
+.page-content-tlv{
+	background-image:url(../img/bg-page.jpg) !important ;
+ background-repeat:repeat-x !important ;
+
+	color:#FFFFFF; font-family:'apex_newmedium'; font-size:11px; 
+}
+
+.bouton{float:left; margin:4px}
+
+#nav-home-tlv{width:280px; margin:auto;margin-top:110px; margin-bottom:0px; padding:0px  }
