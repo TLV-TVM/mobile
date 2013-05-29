@@ -15,15 +15,17 @@
 	$iOSkey = "AIzaSyC2STsn75whVHEDtXaP9fhm4Nfo9hlgqIk";
 	$AndroidKey = "AIzaSyDyFXcxcclq36-Cs1CHb7U192mehdBkP6A";
 ?>
-<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 <script src="js/jqm/jquery.mobile-1.3.1.js"></script> 
 
-<!-- Phonegap setup -->
-<script type="text/javascript" charset="utf-8" src="js/phonegap-1.4.1.js"></script>
+
 <!-- jQuery UI Map v3 -->
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
-<script type="text/javascript" charset="utf-8" src="js/jquery.ui.map.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="js/geoloc.js"></script>
+ 
+ <script type="text/javascript" src="js/ui-map/ui/jquery.ui.map.js"></script>
+ <script type="text/javascript" src="js/ui-map/ui/jquery.ui.map.services.js"></script>
+<script type="text/javascript" src="js/ui-map/ui/jquery.ui.map.extensions.js"></script>
+
     
 
 
@@ -336,8 +338,24 @@ Accueil
   <div data-role="content" class="page-content-tlv">
   
      <h2>Geolocation</h2>
-		<div id="map_canvas"></div>
-		<div id="geolocation"></div>
+				 
+					<div id="laCarte" style="height:250px;"></div>
+					<p>
+						<label for="from">De</label>
+						<input id="from" class="ui-bar-c" type="text" value="" />
+					</p>
+					<p>
+						<label for="to">A</label>
+						<input id="to" class="ui-bar-c" type="text" value="" />
+					</p>
+					<a id="submit" href="#" data-role="button" data-icon="search">Voir l'itin&eacute;raire</a>
+				</div>
+				<div id="results" class="ui-listview ui-listview-inset ui-corner-all ui-shadow" style="display:none;">
+					<div class="ui-li ui-li-divider ui-btn ui-bar-b ui-corner-top ui-btn-up-undefined">Results</div>
+					<div id="directions"></div>
+					<div class="ui-li ui-li-divider ui-btn ui-bar-b ui-corner-bottom ui-btn-up-undefined"></div>
+				 
+
   </div>
   
   
@@ -361,15 +379,65 @@ $(document).bind("mobileinit", function(){
   $.mobile.orientationChangeEnabled = false;
   $.mobile.allowCrossDomainPages = true;
   
-  function onDeviceReady(){
-		getPosition();
-	}
  
 });
 
 
-
-
+//// Carte
+$('#geoLoc').live('pageshow', function() {
+	
+	if (navigator.geolocation){
+	  navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+	 // navigator.geolocation.getCurrentPosition(successCallback, errorCallback, {enableHighAccuracy : true, timeout:10000, maximumAge:600000});
+	}else{
+	  alert("Votre navigateur ne prend pas en compte la géolocalisation HTML5");
+	}
+	
+	
+	function successCallback(position){
+	 	// alert("Latitude : " + position.coords.latitude + ", longitude : " + position.coords.longitude);
+	  
+	 	 var clientPosition = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+		 $('#laCarte').gmap('addMarker', {'position': clientPosition,'zoom':18, 'bounds': true});
+	  
+	}; 
+	 
+	function errorCallback(error){
+	  switch(error.code){
+		case error.PERMISSION_DENIED:
+		  alert("L'utilisateur n'a pas autorisé l'accès à sa position");
+		  break;     
+		case error.POSITION_UNAVAILABLE:
+		  alert("L'emplacement de l'utilisateur n'a pas pu être déterminé");
+		  break;
+		case error.TIMEOUT:
+		  alert("Le service n'a pas répondu à temps");
+		  break;
+		}
+	};
+});
+/*
+	$('#laCarte').gmap('getCurrentPosition', function(position, status) {
+		if ( status === 'OK' ) {
+			
+			var LatTLV  =0;
+			var LongTLV = 0;
+			
+			if (navigator.geolocation){
+			  navigator.geolocation.getCurrentPosition(function(position) {
+					LatTLV =position.coords.latitude ;
+					LongTLV =  position.coords.longitude ;
+				  });
+			} 
+			
+			var clientPosition = new google.maps.LatLng(LatTLV, LongTLV);
+			
+			
+			$('#laCarte').gmap('addMarker', {'position': clientPosition, 'zoom':10, 'bounds': true});
+			 
+		}
+	});
+	*/
 
 
 //if (navigator.userAgent.match(/iPhone/i)) {
