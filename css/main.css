@@ -79,10 +79,13 @@ body.lanscape{
 .page-content-tlv{
 	background-image:url(../img/bg-page.jpg) !important ;
  background-repeat:repeat-x !important ;
-
+background-size:cover;
+	min-height:480px;
 	color:#FFFFFF; font-family:'apex_newmedium'; font-size:11px; 
 }
-
+.page-content-tlv table{border:0px solid #003;border-spacing:0px;}
+.page-content-tlv table th{padding:2px; color:#000000; background-color:#FFFFFF;  border:1px solid #ffffff}
+.page-content-tlv table td{padding:2px;  border:1px solid #ffffff}
 .bouton{float:left; margin:4px}
 
 #nav-home-tlv{width:280px; margin:auto;margin-top:110px; margin-bottom:0px; padding:0px  }
