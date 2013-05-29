@@ -387,8 +387,8 @@ $(document).bind("mobileinit", function(){
 $('#geoLoc').live('pageshow', function() {
 	
 	if (navigator.geolocation){
-	  navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-	 // navigator.geolocation.getCurrentPosition(successCallback, errorCallback, {enableHighAccuracy : true, timeout:10000, maximumAge:600000});
+	 //navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+	  navigator.geolocation.getCurrentPosition(successCallback, errorCallback, { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true });
 	}else{
 	  alert("Votre navigateur ne prend pas en compte la géolocalisation HTML5");
 	}
