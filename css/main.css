@@ -73,7 +73,18 @@ body.lanscape{
 	font-size:11px; 
 }
  
- 
+
+/* Jquery Theme */
+
+#infosTlv .ui-bar-c a.ui-link {
+	color: #000000;
+	text-decoration: none;
+}
+
+#infosTlv h3 {
+	font-weight: bold;
+	font-size: 16px;
+}
  
 
 .page-content-tlv{
@@ -81,11 +92,54 @@ body.lanscape{
  background-repeat:repeat-x !important ;
 background-size:cover;
 	min-height:480px;
-	color:#FFFFFF; font-family:'apex_newmedium'; font-size:11px; 
+	color:#FFFFFF; font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif; font-size:11px; text-shadow: 0 0 0; 
 }
 .page-content-tlv table{border:0px solid #003;border-spacing:0px;}
 .page-content-tlv table th{padding:2px; color:#000000; background-color:#FFFFFF;  border:1px solid #ffffff}
 .page-content-tlv table td{padding:2px;  border:1px solid #ffffff}
 .bouton{float:left; margin:4px}
 
+
+/* Page Tarifs */
+#tarifs .page-content-tlv {
+	
+}
+#tarifs .page-content-tlv h1 {
+	text-transform: uppercase;
+	text-align: justify;
+}
+#tarifs .page-content-tlv table {
+	-o-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+#tarifs .page-content-tlv td { background: #ffffff; color: #131313; border: solid 1px #131313; }
+#tarifs .page-content-tlv tr:first-child td {
+	background: url(../images/bg_tableau.png) 0 0 repeat-x;
+	color: #FFF;
+}
+#tarifs .page-content-tlv p {
+	font-style: italic;
+}
+/* Fin Page Tarifs */
+
+
+/* Page Informations */
+#page2 .page-content-tlv, #page2 .page-content-tlv a, #page3 .page-content-tlv, #page3 .page-content-tlv a {
+	color: #FFF;
+	text-align: justify;
+}
+/* FIN Page Informations */
+
 #nav-home-tlv{width:280px; margin:auto;margin-top:110px; margin-bottom:0px; padding:0px  }
+
+#itineraireShow table{border:1px solid #FFF; color:#000000}
+#itineraireShow  { background-color:#FFFFFF}
+#itineraireShow td{color:#000000}
+
+
+#descMeteo{text-align:center; width:280px; margin:auto}
+#descMeteo .info{ font-style:italic; font-size:16px}
+#descMeteo .ladate{ font-size:18px}
+#descMeteo hr{border:0px; border-bottom:1px dashed #FFFFFF; background-color:transparent}
