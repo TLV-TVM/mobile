@@ -35,8 +35,7 @@ html, body {
 
 
 
-#footer-tlv{  text-align:center; height: 96px; }
-
+#footer-tlv{  text-align:center}
 
 
 /***** TLV ******/
@@ -74,18 +73,7 @@ body.lanscape{
 	font-size:11px; 
 }
  
-
-/* Jquery Theme */
-
-#infosTlv .ui-bar-c a.ui-link {
-	color: #000000;
-	text-decoration: none;
-}
-
-#infosTlv h3 {
-	font-weight: bold;
-	font-size: 16px;
-}
+ 
  
 
 .page-content-tlv{
@@ -93,115 +81,14 @@ body.lanscape{
  background-repeat:repeat-x !important ;
 background-size:cover;
 	min-height:480px;
-	color:#FFFFFF; font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif; font-size:11px; text-shadow: 0 0 0; 
+	color:#FFFFFF; font-family:'apex_newmedium'; font-size:11px; 
 }
 .page-content-tlv table{border:0px solid #003;border-spacing:0px;}
 .page-content-tlv table th{padding:2px; color:#000000; background-color:#FFFFFF;  border:1px solid #ffffff}
 .page-content-tlv table td{padding:2px;  border:1px solid #ffffff}
-.bouton{float:left; margin:4px 5px;}
+.bouton{float:left; margin:4px}
 
-
-/* Page Tarifs */
-#tarifs .page-content-tlv {
-	
-}
-#tarifs .page-content-tlv h1 {
-	text-transform: uppercase;
-	text-align: left;
-}
-#tarifs .page-content-tlv table,
-#horaires .page-content-tlv table,
-#infoHoraire .page-content-tlv table {
-	-o-border-radius: 5px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
-}
-#tarifs .page-content-tlv table td,
-#horaires .page-content-tlv table td,
-#infoHoraire .page-content-tlv table td { 
-	background: #ffffff; 
-	color: #131313; 
-	border: solid 1px #131313; 
-}
-#tarifs .page-content-tlv table th,
-#horaires .page-content-tlv table th,
-#infoHoraire .page-content-tlv table th { 
-	border: solid 1px #131313; 
-}
-#tarifs .page-content-tlv tr:first-child td, 
-#tarifs .page-content-tlv table th,
-#horaires .page-content-tlv tr:first-child td, 
-#horaires .page-content-tlv table th,
-#infoHoraire .page-content-tlv tr:first-child td, 
-#infoHoraire .page-content-tlv table th {
-	background: url(../images/bg_tableau.png) 0 0 repeat-x;
-	color: #FFF;
-	height: 30px;
-}
-#tarifs .page-content-tlv p, #infoHoraire p {
-	font-style: italic;
-}
-/* Fin Page Tarifs */
-
-
-/* Page Informations */
-#page2 .page-content-tlv, #page2 .page-content-tlv a, #page3 .page-content-tlv, #page3 .page-content-tlv a {
-	color: #FFF;
-	text-align: justify;
-	font-size: 12px;
-}
-/* FIN Page Informations */
-
-/* Bouton de validation */
-#bouton_submit .ui-btn{
-	background: #414f55; /* Old browsers */
-	background: -moz-linear-gradient(top,  #414f55 0%, #2a3235 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#414f55), color-stop(100%,#2a3235)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #414f55 0%,#2a3235 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #414f55 0%,#2a3235 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #414f55 0%,#2a3235 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  #414f55 0%,#2a3235 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#414f55', endColorstr='#2a3235',GradientType=0 ); /* IE6-9 */
-	opacity: 1;
-	border: solid 1em #414f55;
-	color: #FFFFFF;
-	text-shadow: 0 0 0;
-	z-index: 1;
-	-o-border-radius: 5px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
-}
-
-#bouton_submit .ui-btn:hover {
-	background: #2a3235; /* Old browsers */
-	background: -moz-linear-gradient(top,  #2a3235 0%, #414f55 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2a3235), color-stop(100%,#414f55)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #2a3235 0%,#414f55 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #2a3235 0%,#414f55 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #2a3235 0%,#414f55 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  #2a3235 0%,#414f55 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2a3235', endColorstr='#414f55',GradientType=0 ); /* IE6-9 */
-}
-
-#bouton_submit .ui-btn-text {
-	
-	text-shadow: 0 0 0;
-	color: #FFF;
-}
-
-#bouton_submit .ui-btn-up-c, #bouton_submit .ui-btn-hover-c {
-	border: none;
-}
-
-/* FIN Bouton de validation */
-
-#nav-home-tlv{width:315px; margin:auto;margin-top:110px; margin-bottom:0px; padding:0px; }
-
-#home .ui-content {
-	padding: 15px 0;
-}
+#nav-home-tlv{width:280px; margin:auto;margin-top:110px; margin-bottom:0px; padding:0px  }
 
 #itineraireShow table{border:1px solid #FFF; color:#000000}
 #itineraireShow  { background-color:#FFFFFF}
