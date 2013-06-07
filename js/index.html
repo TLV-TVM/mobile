@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>TLV TVM</title>
+
+<meta name="viewport" content="height=device-height,width=device-width,initial-scale=1.0,maximum-scale=1.0" >
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<link rel="apple-touch-startup-image" href="img/jqt_startup.png" />
+<link rel="apple-touch-icon" href="img/jqtouch.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="img/jqtouch.png" /><!-- 72x72-->
+<link rel="apple-touch-icon" sizes="114x114" href="img/jqtouch.png" /><!-- 114x144-->
+
+
+ 
+
+
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+<link rel="stylesheet" href="css/jquery.mobile-1.3.1.css" />
+<script src="js/jquery.mobile-1.3.1.min.js"></script>
+<link rel="stylesheet" href="css/main.css" />
+
+<style>
+/***** TLV ******/
+ body{
+	 background-color:#004787  !important; 
+ }
+body.portrait{
+	 
+    background: url(img/bg-appli.png) !important ;background-color:#004787  !important;
+    background-repeat:no-repeat  !important ;
+    background-position:center center  !important ;
+    background-attachment:scroll !important ;
+    background-size:100% 100% !important ;
+ 
+}
+body.lanscape{
+ 
+    background: url(img/bg-appli-landscape.png) !important ;
+    background-repeat:no-repeat  !important ;
+    background-position:center center  !important ;
+    background-attachment:scroll !important ;
+	 background-size:100% 100% !important ;
+    
+ 
+}
+.ui-page {
+    background: transparent;
+	
+}
+.ui-content{
+    background: transparent;
+	
+}
+.bouton{float:left; margin:4px}
+
+#nav-home{margin-top:110px}
+
+</style>
+
+</head>
+
+<body  class="portrait">
+
+
+
+<!-- SPLASH -->
+
+
+<!-- HOME -->
+<div data-role="page" class="page-tlv" id="home">
+
+
+  <div  data-role="header"   data-position="fixed"   >
+  
+      <div id="header-tlv"><img src="img/logo-tlv.jpg"  height="45" /></div>
+      <div id="header-sub-tlv">porquerolles <span class="tiret">-</span> port cros <span class="tiret">-</span> le levant</div>
+  </div>
+  
+  
+  <div data-role="content" class="page-tlv">
+  
+      <div id="nav-home">
+         <div class="bouton">
+         <img src="img/btn/btn-horaire.jpg" />
+         </div>
+         <div class="bouton">
+         <img src="img/btn/btn-tarifs.jpg" />
+         </div>
+         <div class="bouton">
+         <img src="img/btn/btn-loc.jpg" />
+         </div>
+         <div class="bouton">
+         <img src="img/btn/btn-alerte.jpg" />
+         </div>
+         <div class="bouton">
+         <img src="img/btn/btn-infos.jpg" />
+         </div>
+         <div class="bouton">
+         <img src="img/btn/btn-meteo.jpg" />
+         </div>
+         <div style="clear:both"></div>
+      </div> 
+  </div>
+  
+  
+  <div data-role="footer"  data-position="fixed"  style="background-image:none; background-color:transparent;border-top:0px" id="footer-tlv" ><img src="img/footer.png"  width="100%"  id="img-footer" /></div>
+  
+</div>
+
+
+
+
+<script type="text/javascript" charset="utf-8">
+ if (navigator.userAgent.match(/iPhone/i)) {
+
+        //cache the viewport tag if the user is using an iPhone
+        var $viewport = $('head').children('meta[name="viewport"]');
+
+        //bind an event handler to the window object for the orientationchange event
+        $(window).bind('orientationchange', function() {
+            if (window.orientation == 90 || window.orientation == -90 || window.orientation == 270) {
+
+                //landscape
+                $viewport.attr('content', 'height=device-width,width=device-height,initial-scale=1.0,maximum-scale=1.0');
+				$("body").removeClass("portrait");
+				$("body").addClass("landscape");
+				$("#img-footer").attr("src","img/footer-landscape.png");
+				$("#nav-home").css('margin-top','0px');
+				$("#footer-tlv").css('display','none');
+            } else {
+
+                //portrait
+                $viewport.attr('content', 'height=device-height,width=device-width,initial-scale=1.0,maximum-scale=1.0');
+				
+				$("body").removeClass("landscape");
+				$("body").addClass("portrait");
+				$("#img-footer").attr("src","img/footer.png");
+				$("#nav-home").css('margin-top','110px');
+				$("#footer-tlv").css('display','');
+            }
+
+        //trigger an orientationchange event on the window object to initialize this code (basically in-case the user opens the page in landscape mode)
+        }).trigger('orientationchange');
+    }		
+
+//verrouillage portrait
+function shouldRotateToOrientation(interfaceOrientation) {
+    return (1 === interfaceOrientation);
+}			
+</script>
+
+</body>
+</html>

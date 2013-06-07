@@ -53,16 +53,22 @@
 		var map = null; 
 	
 		if (navigator.geolocation){
-	 	  navigator.geolocation.getCurrentPosition(successCallback, errorCallback, { maximumAge: 3000, timeout:30000, enableHighAccuracy: true });
+	 	  navigator.geolocation.getCurrentPosition(successCallback, errorCallback, { maximumAge: 3000, timeout:3000, enableHighAccuracy: true });
 		}else{
 		  alert("Votre navigateur ne prend pas en compte la géolocalisation HTML5");
 		}   
 		
 	 	
 		function successCallback(position){
-			IciLat =position.coords.latitude ;
-			IciLong = position.coords.longitude;
-		 
+			
+			/*if (error == true) {
+				IciLat = '43.082516';
+				IciLong = '6.157009';
+			} else {*/
+				IciLat =position.coords.latitude ;
+				IciLong = position.coords.longitude;
+			//}
+			
 		
 			  $('#from').val(IciLat + "," + IciLong);
 			  
@@ -71,6 +77,7 @@
 				var map;
 				
 				var PtDepart = new google.maps.LatLng(IciLat ,IciLong);
+				//alert('Point de départ '+position);
 				//var oceanBeach = new google.maps.LatLng(37.7683909618184, -122.51089453697205);
 				
 				google.maps.visualRefresh = true;
@@ -102,7 +109,7 @@
 				function calcRoute() {
 				  
 				  $("#itineraireShow").html('');
-				  
+				 //alert('CalcRoute :' + PtDepart);
 				  
 				  var EndPoint;
 				  EndPoint = $("#endPoint :selected").val().split(',');
@@ -143,12 +150,15 @@
 		  switch(error.code){
 			case error.PERMISSION_DENIED:
 			  alert("L'utilisateur n'a pas autorisé l'accès à sa position");
+			  //successCallback(position='0',error=true);
 			  break;     
 			case error.POSITION_UNAVAILABLE:
 			  alert("L'emplacement de l'utilisateur n'a pas pu être déterminé");
+			  //successCallback(position='0',error=true);
 			  break;
 			case error.TIMEOUT:
 			  alert("Le service n'a pas répondu à temps");
+			  //successCallback(position='0',error=true);
 			  break;
 			}
 		};
@@ -178,22 +188,22 @@
 	  
 		<div id="nav-home-tlv">
 			<div class="bouton">
-				<a href="#horaires" data-transition="slide"><img src="img/btn/btn-horaire.jpg" border="0" /></a>
+				<a href="#horaires" data-transition="flip"><img src="img/btn/btn_horaires.png" border="0" /></a>
 			</div>
 			<div class="bouton">
-				<a href="#tarifs" data-transition="slidedown"><img src="img/btn/btn-tarifs.jpg" border="0" /></a>
+				<a href="#tarifs" data-transition="flip"><img src="img/btn/btn_tarifs.png" border="0" /></a>
 			</div>
 			<div class="bouton">
-				<a href="#infosTlv" data-transition="flip"><img src="img/btn/btn-infos.jpg" border="0" /></a>
+				<a href="#infosTlv" data-transition="flip"><img src="img/btn/btn_infos.png" border="0" /></a>
 			</div>
 			<div class="bouton">
-				<a href="#alertes" data-transition="slideup"><img src="img/btn/btn-alerte.jpg" border="0" /></a>
+				<a href="#alertes" data-transition="flip"><img src="img/btn/btn_alertes.png" border="0" /></a>
 			</div>
 			<div class="bouton">
-				<a href="#geoLoc" data-transition="pop"><img src="img/btn/btn-loc.jpg"  border="0"/></a>
+				<a href="#geoLoc" data-transition="flip"><img src="img/btn/btn_geoloc.png"  border="0"/></a>
 			</div>
 			<div class="bouton">
-				<a href="#meteoTLV"  data-transition="slide"><img src="img/btn/btn-meteo.jpg" border="0" /></a>
+				<a href="#meteoTLV"  data-transition="flip"><img src="img/btn/btn_meteo.png" border="0" /></a>
 			</div>
 			<div style="clear:both"></div>
 		</div> 
@@ -227,7 +237,7 @@
 		<label for="date_depart">Horaires du :</label>
 		<input value="<?=date("d/m/Y")?>" name="date_depart" id="date_depart" type="date" data-role="datebox" data-options='{"mode": "calbox","useFocus": true, "calShowWeek": true}'>
 		<p>&nbsp;</p>
-		<input type="button" value="Consulter les horaires" id="btnHoraireGo" />
+		<div id="bouton_submit"><input type="button" class="bt-valid" value="Consulter les horaires" id="btnHoraireGo" /></div>
 		<div id="infoHoraire">&nbsp;</div>
 	</div>
 	
@@ -423,9 +433,9 @@
 				<li><strong>Pas de cueillette ni de pr&eacute;l&egrave;vement</strong> pour conserver la diversit&eacute; biologique.</li>
 				<li><strong>La circulation des v&eacute;hicules motoris&eacute;s et des v&eacute;los est r&eacute;glement&eacute;e.</strong></li>
 				<li>Pour sauvegarder la flore et la faune sauvages, <strong>ne pas quitter le trac&eacute;</strong> des pistes et des sentiers autoris&eacute;s.</li>
-				<li>Pour la tranquillit&eacute; de la faune, <strong>les chiens doivent être tenus en laisse.</strong> Ils sont interdits d'acc&egrave;s sur les plages pour des raisons de salubrit&eacute;.</li>
+				<li>Pour la tranquillit&eacute; de la faune, <strong>les chiens doivent &ecirc;tre tenus en laisse.</strong> Ils sont interdits d'acc&egrave;s sur les plages pour des raisons de salubrit&eacute;.</li>
 			</ul>
-			Le contenu d&eacute;taill&eacute; de la r&eacute;glementation peut être consult&eacute; dans les points d'informations du Parc National de Port-Cros et du Conservatoire Botanique National M&eacute;diterran&eacute;en de Porquerolles.
+			Le contenu d&eacute;taill&eacute; de la r&eacute;glementation peut &ecirc;tre consult&eacute; dans les points d'informations du Parc National de Port-Cros et du Conservatoire Botanique National M&eacute;diterran&eacute;en de Porquerolles.
 		</p>
 		<h3>Danger Incendie (S&eacute;cheresse + vent = risque accru d'incendie)</h3>
 		<p>Pour la s&eacute;curit&eacute; de chacun, <strong>les massifs forestiers sont alors ferm&eacute;s</strong> &agrave; la fr&eacute;quentation du public, et la circulation n'est autoris&eacute;e que sur les chemins d'acc&egrave;s au plages.
@@ -440,6 +450,29 @@
 	<div data-role="footer"  data-position="fixed"  style="background-image:none; background-color:transparent;border-top:0px" id="footer-tlv" ><img src="img/footer.png"  width="100%"  id="img-footer" /></div>
   
 </div>
+
+<div data-role="page" id="page4" data-add-back-btn="true">
+	<div data-role="header" data-position="fixed">
+		<div id="header-tlv"><img src="img/logo-tlv.jpg"  height="45" /></div>
+		<a data-role="button" data-direction="reverse" data-rel="back" href="#infosTlv" data-icon="arrow-l" data-iconpos="left" style="margin-top:4px">Retour</a>
+		<div id="header-sub-tlv">porquerolles <span class="tiret">-</span> port cros <span class="tiret">-</span> le levant</div>
+	</div>
+	
+	<div data-role="content" class="page-content-tlv">
+		<div style="margin: 0 auto 15px; width: 95px;"><img src="images/logo-ParcNationalPortCros.jpg" alt="Parc National Port Cros" /></div>
+		Cr&eacute;&eacute; le 14 d&eacute;cembre 1963, le Parc national de Port-Cros, qui occupe 700 ha de terres &eacute;merg&eacute;es et 1288 ha de surfaces marines, est l'un des deux plus anciens Parc Nationaux de France et le premier parc marin europ&eacute;en. Il comprend l'&icirc;le de Port-Cros, celle de Bagaud, les &icirc;lots de la Gabini&egrave;re et du Rascas ainsi qu'un  p&eacute;rim&egrave;tre marin de 600 m de large.
+		Le 6 mai 2012 a &eacute;t&eacute; publi&eacute; au journal officiel de la r&eacute;publique, le d&eacute;cret n° 2012-649 qui, en application de la loi d'avril 2006, r&eacute;forme le parc national en profondeur. A l'issue d'une concertation avec les acteurs locaux, l'espace du Parc national se trouve totalement reconfigur&eacute;. Il comporte aujourd'hui :
+		<ul>
+			<li>deux &laquo; cœurs &raquo;, espaces de protection et d'accueil du public, constitu&eacute;s de l' &icirc;le de Port-Cros et des espaces naturels propri&eacute;t&eacute; de l'Etat de l'&icirc;le Porquerolles ainsi que leur frange marine jusqu'&agrave; une distance de 600 m,</li>
+			<li>une &laquo; aire potentielle d'adh&eacute;sion &raquo;, espace de projet de d&eacute;veloppement durable &agrave; &eacute;laborer avec les onze communes qui le composent,</li>
+			<li>une &laquo; aire maritime adjacente &raquo; r&eacute;plique en mer de l'aire d'adh&eacute;sion, qui couvre l'espace marin au droit de ces onze communes et &eacute;tendue jusqu'&agrave; 3 milles marins au sud des &icirc;les.</li>
+		</ul>
+	</div>
+	
+	<div data-role="footer"  data-position="fixed"  style="background-image:none; background-color:transparent;border-top:0px" id="footer-tlv" ><img src="img/footer.png"  width="100%"  id="img-footer" /></div>
+  
+</div>
+
 <!-- FIN infosTlv -->
 
 
@@ -572,31 +605,36 @@
 		
 		<h2>Itin&eacute;raires</h2>
 		<p>
-			Pour vous rendre &agrave; la Tour Fondue ou au Port de Hy&egrave;res en bus, consultez les horaires sur:
-			<a href="#" id="appli">Application Bus Mistral</a>
+			Pour vous rendre &agrave; la Tour Fondue ou au Port de Hy&egrave;res en bus, consultez les horaires sur:<br />
+			<a href="#" id="appli" style="width: 78px; margin: 5px auto; display: block;"><img src="images/bus_mistral.png" alt="Application Bus Mistral" style="vertical-align: top;" /></a>
 		</p>
 		<p>
-			De : <strong>ma position actuelle</strong>
+			<label>De :</label> 
+			<div class="ui-btn ui-shadow ui-btn-corner-all ui-btn-icon-right ui-btn-up-c" style="line-height: 38px;font-family: Helvetica,Arial,sans-serif; font-weight: bold; font-size: 16px; border-radius: 1em;">Ma position actuelle</div>
 			<input id="from"   type="hidden" value="" />
 		</p>
 		<p>
-			<label for="to">A :</label>
+			<label>A :</label>
 			<select name="endPoint" id="endPoint">
 				<option value="43.0822795,6.1569269">Le Port d'Hyeres</option>
 				<option value="43.0280560,6.1550942">La Tour Fondue</option>
-				<option value="43.003111,6.200658">Embarquadaire Proquerolles</option>
+				<option value="43.003111,6.200658">Embarcad&egrave;re Porquerolles</option>
 			</select>
 		</p>
-		<select id="mode" onchange="calcRoute();">
-			<option value="DRIVING">Voiture</option>
-			<option value="WALKING">Pieton</option>
-			<option value="BICYCLING">V&eacute;lo</option>
-		</select>
-		
-		<input type="button" id="CalcItin"  name="CalcItin"  data-icon="search" value="Voir l'itin&eacute;raire">
+		<p>
+			<label>Moyen de transport :</label>
+			<select id="mode" onchange="calcRoute();">
+				<option value="DRIVING">Voiture</option>
+				<option value="WALKING">Pieton</option>
+				<option value="BICYCLING">V&eacute;lo</option>
+			</select>
+		</p>
+		<div id="bouton_submit">
+			<input type="button" id="CalcItin" class="bt-valid"  name="CalcItin"  data-icon="search" value="Voir l'itin&eacute;raire">
+		</div>
 		<p>&nbsp;</p>
 		<div id="itineraireShow" style="   color:#FFF"></div><p>&nbsp;</p>
-		<div id="laCarte" style="border:1px solid #FFF;height:280px;width:280px;margin:auto"></div>
+		<div id="laCarte" style="border:1px solid #FFF;height:280px;width:100%;margin:auto"></div>
 	</div>
 	
 	<script type="text/javascript" src="js/jquery.browser_detect.js"></script>

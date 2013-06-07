@@ -20,7 +20,7 @@
 
 @media all and (min-width: 450px){
   .ui-field-contain .ui-input-datebox { width: 74.7%; display: inline-block; }
-  .ui-hide-label .ui-input-datebox { width: 100%; }
+  .ui-hide-label .ui-input-datebox { width: 90%; }
 }
 
 
