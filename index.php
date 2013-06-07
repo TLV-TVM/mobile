@@ -25,7 +25,7 @@
 	<link rel="stylesheet" href="css/main.css" />
 <?
 
- $addr_serveur = 'localhost';
+ 	$addr_serveur = '46.105.39.55';
 	$login_mysql = 'yoogi_tlv';
 	$pass_mysql = 'tlv83';
 	$nom_bdd = 'yoogi_tlv';
