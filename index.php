@@ -11,10 +11,6 @@
 <link rel="apple-touch-icon" sizes="72x72" href="img/jqtouch.png" /><!-- 72x72-->
 <link rel="apple-touch-icon" sizes="114x114" href="img/jqtouch.png" /><!-- 114x144-->
 
-<?
-	$iOSkey = "AIzaSyC2STsn75whVHEDtXaP9fhm4Nfo9hlgqIk";
-	$AndroidKey = "AIzaSyDyFXcxcclq36-Cs1CHb7U192mehdBkP6A";
-?>
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 
 
@@ -227,7 +223,7 @@ Accueil
      
      <label for="date_depart">Horaires du :</label>
 
-<input value="<?=date("d/m/Y")?>" name="date_depart" id="date_depart" type="date" data-role="datebox"
+<input value="" name="date_depart" id="date_depart" type="date" data-role="datebox"
    data-options='{"mode": "calbox","useFocus": true, "calShowWeek": true}'>
    <p>&nbsp;</p>
    <input type="button" value="Consulter les horaires" id="btnHoraireGo" />
@@ -260,7 +256,7 @@ Accueil
   
   <div data-role="content" class="page-content-tlv">
   
-     <? echo 'Content PHP'; ?>
+     
   </div>
   
   
