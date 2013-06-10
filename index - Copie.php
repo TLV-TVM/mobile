@@ -166,9 +166,9 @@
 </script>
 
  <script src="js/jqm/jquery.mobile-1.3.1.js"></script> 
-<script type="text/javascript" src="js/jqm-datebox.core.min.js"></script>
-<script type="text/javascript" src="js/jqm-datebox.mode.calbox.min.js"></script>
-<script type="text/javascript" src="js/jquery.mobile.datebox.i18n.fr.utf8.js"></script>
+<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.core.min.js"></script>
+<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.calbox.min.js"></script>
+<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/i18n/jquery.mobile.datebox.i18n.fr.utf8.js"></script>
  
 </head>
 
@@ -327,7 +327,7 @@ Accueil
   
      <H1>Alertes Info TLV</H1>
                 
-                <img src="images/Visuel-Paoramique-Intemperies.jpg" class="img_border" width="100%" />
+                <img src="http://www.tlv-tvm.com/images/Visuel-Paoramique-Intemperies.jpg" class="img_border" width="100%" />
                 
                 <div class="content">
                        <?
