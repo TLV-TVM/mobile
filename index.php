@@ -15,7 +15,7 @@
 	$iOSkey = "AIzaSyC2STsn75whVHEDtXaP9fhm4Nfo9hlgqIk";
 	$AndroidKey = "AIzaSyDyFXcxcclq36-Cs1CHb7U192mehdBkP6A";
 ?>
-<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="js/jquery-1.9.1.min.js"></script>
 
 
 
