@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="height=device-height,width=device-width,initial-scale=1.0,maximum-scale=1.0, user-scalable=no"  >
 <meta name="apple-mobile-web-app-capable" content="yes" />
-<link rel="apple-touch-startup-image" href="img/jqt_startup.png" />
+
 <link rel="apple-touch-icon" href="img/jqtouch.png" />
 <link rel="apple-touch-icon" sizes="72x72" href="img/jqtouch.png" /><!-- 72x72-->
 <link rel="apple-touch-icon" sizes="114x114" href="img/jqtouch.png" /><!-- 114x144-->
