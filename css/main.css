@@ -2,7 +2,7 @@
 html, body {
     height : 100%;
 	/*margin:0px;padding:0px; */
-	background-color:#004484  !important; 
+	/*background-color:#004d91 !important;*/ 
 
 }
 @font-face {
@@ -14,12 +14,13 @@ html, body {
          url('font/apexnew-medium-webfont.svg#apex_newmedium') format('svg');
     font-weight: normal;
     font-style: normal;
- }
+}
 
 #header-tlv{
 	background-image:url(../img/bkg-header.png); background-repeat:repeat-x;
  	text-align:center;
 }
+
 #header-sub-tlv{
 	background-image:url(../img/bkg-header2.png); background-repeat:repeat-x;
 	height:31px;
@@ -31,17 +32,33 @@ html, body {
 	line-height:30px;
 	letter-spacing:1px;
 }
+
 #header-sub-tlv .tiret{color:#8bcdfa; font-weight:bold; font-size:14px}
 
+#footer-tlv{  
+	text-align:center; 
+	height: 96px;
+	border-top:0px;
+	background:none!important;
+}
+#footer-tlv div { display: inline-block; }
+#footer-tlv .bgfooterleft,#footer-tlv .bgfooterright {
+	height: 96px;
+	position: absolute;
+	background: transparent url(../images/footer-repeat.gif) repeat-x 0 40px !important;
+}
+#footer-tlv #imgfooter {
+	width: 320px;
+	margin: 0 auto;
+	vertical-align:top;
+}
 
-
-#footer-tlv{  text-align:center}
 
 
 /***** TLV ******/
  
 body.portrait{
-	 background-color:#004484  !important;
+	 background:#004d91 url(../images/TLV-BG-MER.jpg) repeat-x !important;
    /* background: url(img/bg-appli.png) !important ;
     background-repeat:no-repeat  !important ;
     background-position:center center  !important ;
@@ -49,46 +66,163 @@ body.portrait{
     background-size:100% 100% !important ;*/
  
 }
-body.lanscape{
- background-color:#004484 !important;
- /*	background: url(img/bg-appli-landscape.png) !important ;  !important;
+body.landscape{
+	background: #004d91 url(../images/TLV-BG-MER.jpg) repeat-x !important;
+	/*background-color: #035295 !important;*/
+ 	/*background-color:#004484 !important;
+ 	background: url(img/bg-appli-landscape.png) !important ;  !important;
     background-repeat:no-repeat  !important ;
     background-position:center center  !important ;
     background-attachment:scroll !important ;
     background-size:100% 100% !important ;*/
 }
 .ui-page {
-    background: transparent !important;
+    background: #004485 !important;
+}
+#home {
+	background: url(../images/bateau-seul.png) center 85px no-repeat !important;
 }
 .page-tlv{
 /*    background: transparent;*/
 	/*height:auto !important;*/
 	border:#00FF00 0px solid;
-	background: url(../img/bg-appli-content.png)   !important ;
+	/*background: url(../img/bg-appli-content.png)   !important ;*/
+	/*background: url(../images/TLV-BG-MER.jpg) !important ;
 	background-repeat:repeat-x !important;
- 	 background-size:cover;
-	min-height:480px;
+ 	background-size:cover;*/
+	/*min-height:480px;*/
 	color:#FFFFFF; 
 	font-family:'apex_newmedium'; 
 	font-size:11px; 
 }
  
- 
+
+/* Jquery Theme */
+
+.ui-bar-c a.ui-link, .ui-body-c a.ui-link{
+	color: #ffffff;
+	text-decoration: none;
+}
+
+#infosTlv h3 {
+	font-weight: bold;
+	font-size: 16px;
+}
  
 
 .page-content-tlv{
-	background-image:url(../img/bg-page.jpg) !important ;
- background-repeat:repeat-x !important ;
-background-size:cover;
-	min-height:480px;
-	color:#FFFFFF; font-family:'apex_newmedium'; font-size:11px; 
+	background:url(../img/bg-page.jpg) 0 0 repeat-x !important ;
+ 
+	min-height:384px;
+	color:#FFFFFF; font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif; font-size:11px; text-shadow: 0 0 0; 
 }
 .page-content-tlv table{border:0px solid #003;border-spacing:0px;}
 .page-content-tlv table th{padding:2px; color:#000000; background-color:#FFFFFF;  border:1px solid #ffffff}
 .page-content-tlv table td{padding:2px;  border:1px solid #ffffff}
-.bouton{float:left; margin:4px}
+.bouton{float:left; margin:4px 5px;}
 
-#nav-home-tlv{width:280px; margin:auto;margin-top:110px; margin-bottom:0px; padding:0px  }
+
+/* Page Tarifs */
+#tarifs .page-content-tlv {
+	
+}
+#tarifs .page-content-tlv h1 {
+	text-transform: uppercase;
+	text-align: left;
+}
+#tarifs .page-content-tlv table,
+#horaires .page-content-tlv table,
+#infoHoraire .page-content-tlv table {
+	-o-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+#tarifs .page-content-tlv table td,
+#horaires .page-content-tlv table td,
+#infoHoraire .page-content-tlv table td { 
+	background: #ffffff; 
+	color: #131313; 
+	border: solid 1px #131313; 
+}
+#tarifs .page-content-tlv table th,
+#horaires .page-content-tlv table th,
+#infoHoraire .page-content-tlv table th { 
+	border: solid 1px #131313; 
+}
+#tarifs .page-content-tlv tr:first-child td, 
+#tarifs .page-content-tlv table th,
+#horaires .page-content-tlv tr:first-child td, 
+#horaires .page-content-tlv table th,
+#infoHoraire .page-content-tlv tr:first-child td, 
+#infoHoraire .page-content-tlv table th {
+	background: url(../images/bg_tableau.png) 0 0 repeat-x;
+	color: #FFF;
+	height: 30px;
+}
+#tarifs .page-content-tlv p, #infoHoraire p {
+	font-style: italic;
+}
+/* Fin Page Tarifs */
+
+
+/* Page Informations */
+#page2 .page-content-tlv, #page2 .page-content-tlv a, #page3 .page-content-tlv, #page3 .page-content-tlv a {
+	color: #FFF;
+	text-align: justify;
+	font-size: 12px;
+}
+/* FIN Page Informations */
+
+/* Bouton de validation */
+#bouton_submit .ui-btn{
+	background: #414f55; /* Old browsers */
+	background: -moz-linear-gradient(top,  #414f55 0%, #2a3235 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#414f55), color-stop(100%,#2a3235)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #414f55 0%,#2a3235 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #414f55 0%,#2a3235 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #414f55 0%,#2a3235 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #414f55 0%,#2a3235 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#414f55', endColorstr='#2a3235',GradientType=0 ); /* IE6-9 */
+	opacity: 1;
+	border: solid 1em #414f55;
+	color: #FFFFFF;
+	text-shadow: 0 0 0;
+	z-index: 1;
+	-o-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+#bouton_submit .ui-btn:hover {
+	background: #2a3235; /* Old browsers */
+	background: -moz-linear-gradient(top,  #2a3235 0%, #414f55 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2a3235), color-stop(100%,#414f55)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #2a3235 0%,#414f55 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #2a3235 0%,#414f55 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #2a3235 0%,#414f55 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #2a3235 0%,#414f55 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2a3235', endColorstr='#414f55',GradientType=0 ); /* IE6-9 */
+}
+
+#bouton_submit .ui-btn-text {
+	
+	text-shadow: 0 0 0;
+	color: #FFF;
+}
+
+#bouton_submit .ui-btn-up-c, #bouton_submit .ui-btn-hover-c {
+	border: none;
+}
+
+/* FIN Bouton de validation */
+
+#nav-home-tlv{width:315px; margin:auto;margin-top:110px; margin-bottom:0px; padding:0px; }
+
+#home .ui-content {
+	padding: 15px 0;
+}
 
 #itineraireShow table{border:1px solid #FFF; color:#000000}
 #itineraireShow  { background-color:#FFFFFF}
