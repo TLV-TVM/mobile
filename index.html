@@ -238,7 +238,6 @@
 				url:'http://www.tlv-tvm.com/iphone/content.php?page=tarifs',
 				type:'GET',
 				success:function(tarifs) {
-					alert(tarifs);
 					$("#tarification").append(tarifs);
 				},
 				error:function() {
@@ -274,7 +273,6 @@
 					url:'http://www.tlv-tvm.com/iphone/content.php?page=alertesInfo',
 					type:'GET',
 					success:function(info) {
-						alert('test Meteo');
 						$("#infoMeteo").append(info);	
 					},
 					error:function() {
@@ -333,7 +331,7 @@
 		Au d&eacute;part du port d’Hy&egrave;res en direction de Port Cros et du Levant :<br /><br />
 		Il faut se renseigner au <strong>04 94 57 44 07.</strong><br /><br />
 		Tarif sp&eacute;cial pour PMR sur pr&eacute;sentation de la carte d'invalidit&eacute;.<br /><br />
-		Le circuit "vision sous-marine" n'est cependant pas accessible aux personnes en fauteuil roulant et malvoyantes.
+		Le circuit "vision sous-marine" n'est cependant pas accessible aux personnes en fauteuil roulant.
 	</div>
 	
 	<div data-role="footer" data-position="fixed" id="footer-tlv"><div class="bgfooterleft">&nbsp;</div><div id="imgfooter"><img src="img/footer.png" id="img-footer" /></div><div class="bgfooterright">&nbsp;</div></div>
