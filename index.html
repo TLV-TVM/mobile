@@ -239,8 +239,7 @@
 				type:'GET',
 				success:function(tarifs) {
 					alert(tarifs);
-					$("#tarification").append(tarifs);	
-				   })
+					$("#tarification").append(tarifs);
 				},
 				error:function() {
 					alert("Aucun tarif disponible");
@@ -277,7 +276,6 @@
 					success:function(info) {
 						alert('test Meteo');
 						$("#infoMeteo").append(info);	
-					   })
 					},
 					error:function() {
 						alert("Aucune info météo disponible");
