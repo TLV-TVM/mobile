@@ -24,17 +24,17 @@
  
  
 	<script type="text/javascript">
-		
 		var IciLat;
 		var IciLong;
 		var map = null; 
 	
 		if (navigator.geolocation){
-			navigator.geolocation.getCurrentPosition(successCallback, errorCallback, { maximumAge: 3000, timeout:3000, enableHighAccuracy: true });
+	 	  navigator.geolocation.getCurrentPosition(successCallback, errorCallback, { maximumAge: 3000, timeout:30000, enableHighAccuracy: true });
 		}else{
-			alert("Votre navigateur ne prend pas en compte la géolocalisation HTML5");
-		}
-
+		  alert("Votre navigateur ne prend pas en compte la géolocalisation HTML5");
+		}   
+		
+	 	
 		function successCallback(position){
 			
 			/*if (error == true) {
@@ -123,19 +123,19 @@
 		 }; 
 	 
 		function errorCallback(error){
-			switch(error.code){
-				case error.PERMISSION_DENIED:
-				  alert("L'utilisateur n'a pas autorisé l'accès à sa position");
-				  //successCallback(position='0',error=true);
-				  break;     
-				case error.POSITION_UNAVAILABLE:
-				  alert("L'emplacement de l'utilisateur n'a pas pu être déterminé");
-				  //successCallback(position='0',error=true);
-				  break;
-				case error.TIMEOUT:
-				  alert("Le service n'a pas répondu à temps");
-				  //successCallback(position='0',error=true);
-				  break;
+		  switch(error.code){
+			case error.PERMISSION_DENIED:
+			  alert("L'utilisateur n'a pas autorisé l'accès à sa position");
+			  //successCallback(position='0',error=true);
+			  break;     
+			case error.POSITION_UNAVAILABLE:
+			  alert("L'emplacement de l'utilisateur n'a pas pu être déterminé");
+			  //successCallback(position='0',error=true);
+			  break;
+			case error.TIMEOUT:
+			  alert("Le service n'a pas répondu à temps");
+			  //successCallback(position='0',error=true);
+			  break;
 			}
 		};
 	
