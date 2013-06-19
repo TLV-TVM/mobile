@@ -210,7 +210,7 @@
 		</select>
 		
 		<label for="date_depart">Horaires du :</label>
-		<input value="<?=date("d/m/Y")?>" name="date_depart" id="date_depart" type="date" data-role="datebox" data-options='{"mode": "calbox","useFocus": true, "calShowWeek": true}'>
+		<input value="" name="date_depart" id="date_depart" type="date" data-role="datebox" data-options='{"mode": "calbox","useFocus": true, "calShowWeek": true}'>
 		<p>&nbsp;</p>
 		<div id="bouton_submit"><input type="button" class="bt-valid" value="Consulter les horaires" id="btnHoraireGo" /></div>
 		<div id="infoHoraire">&nbsp;</div>
@@ -241,7 +241,7 @@
 					$("#tarification").append(tarifs);
 				},
 				error:function() {
-					alert("Aucun tarif disponible");
+					$("#tarification").append("Aucun tarif disponible");
 				}
 			});
 		</script>
@@ -276,7 +276,7 @@
 						$("#infoMeteo").append(info);	
 					},
 					error:function() {
-						alert("Aucune info météo disponible");
+						$("#infoMeteo").append("Aucune info météo disponible");
 					}
 				});
 			</script>
@@ -491,7 +491,7 @@
 					$("img.oragefort").attr('src','img/meteo/orageloc.png');
 				},
 				error:function() {
-					alert("Aucun flux trouv&eacute;");
+					$("#descMeteo").append("Aucun flux trouv&eacute;");
 				}
 			});
 		</script>
@@ -568,6 +568,7 @@ $(document).bind("mobileinit", function(){
 	$.mobile.touchOverflowEnabled = true;
   	$.mobile.orientationChangeEnabled = false;
   	$.mobile.allowCrossDomainPages = true;
+  	
 });
 
 
@@ -605,7 +606,7 @@ $(document).bind("mobileinit", function(){
 				*/
 				$('.ui-content').css(
 				{	'background-image':'url(img/bg-appli-landscape.png) !important ',
-					'background-color':'#004787  !important',
+					'background-color':'#004d91  !important',
     				'background-repeat':'no-repeat  !important',
    					' background-position':'top right  !important ',
    					' background-attachment':'scroll !important ',
@@ -669,18 +670,38 @@ $("#btnHoraireGo").click(function(){
 		var an = DateTxt[2];
 		
 		$.ajax({
-		  url: 'http://www.tlv-tvm.com/iphone/checkHoraire.php',
+		  url: 'checkHoraire.php',
 		  type: "POST",
 		  data:{idch:idCatLieux, datedep: ''+an+'-'+mois+'-'+jour },
 		  success: function(htmlReturn) {
-			$('#infoHoraire').append(htmlReturn);
+			$('#infoHoraire').html(htmlReturn);
  		  }
 		});
 	
 })
 
-
-
+	var largeurFooter = 0;
+	var NavLar = $(window).width();
+	largeurFooter = (NavLar - 320) / 2;
+	//largeurFooter = largeurFooter + ' px';
+	$("#footer-tlv .bgfooterleft").css({
+		'width': largeurFooter,
+		'left': 0
+	});
+	$("#footer-tlv .bgfooterright").css({
+		'width': largeurFooter,
+		'right': 0
+	});
+	
+	var date = new Date();
+	var dateJour = date.getDate();
+	var dateMois = date.getMonth()+1;
+	if (dateMois < 10) {
+		dateMois = "0"+dateMois;
+	}
+	var dateAnnee = date.getFullYear();
+	var futDate=dateJour + "/" + dateMois + "/" + dateAnnee;
+	$("#date_depart").val(futDate);
 	
 </script>
 
