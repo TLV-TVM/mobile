@@ -134,10 +134,96 @@
 			  break;
 			case error.TIMEOUT:
 			  alert("Le service n'a pas répondu à temps");
-			  //successCallback(position='0',error=true);
+			  successCallback2()
 			  break;
 			}
 		};
+		
+		function successCallback2(){
+			
+			/*if (error == true) {
+				
+			} else {*/
+				IciLat = '43.082516';
+				IciLong = '6.157009';
+			//}
+			
+		
+			  $('#from').val(IciLat + "," + IciLong);
+			  
+				var directionsDisplay;
+				var directionsService = new google.maps.DirectionsService();
+				var map;
+				
+				var PtDepart = new google.maps.LatLng(IciLat ,IciLong);
+				//alert('Point de départ '+position);
+				//var oceanBeach = new google.maps.LatLng(37.7683909618184, -122.51089453697205);
+				
+				google.maps.visualRefresh = true;
+	
+				
+	 			function initialize() {
+				  directionsDisplay = new google.maps.DirectionsRenderer();
+				  var mapOptions = {
+					zoom: 16,
+					mapTypeId: google.maps.MapTypeId.ROADMAP,
+					center: PtDepart,
+					disableDefaultUI: true
+				  }
+				  map = new google.maps.Map(document.getElementById('laCarte'), mapOptions);
+				  directionsDisplay.setMap(map);
+				  
+	 
+	 			 directionsDisplay.setPanel(document.getElementById('itineraireShow'));
+	
+				  
+				  var marker = new google.maps.Marker({
+					  position: PtDepart,
+					  map: map 
+				  });
+	
+				  
+				}
+				
+				function calcRoute() {
+				  
+				  $("#itineraireShow").html('');
+				 //alert('CalcRoute :' + PtDepart);
+				  
+				  var EndPoint;
+				  EndPoint = $("#endPoint :selected").val().split(',');
+				  
+				  
+				 var destinaTionTlv = new google.maps.LatLng(EndPoint[0], EndPoint[1]);
+				 
+				 
+				  var selectedMode = document.getElementById('mode').value;
+				  var request = {
+					  origin: PtDepart,
+					  destination: destinaTionTlv,
+					 // route : 'itineraireShow', 
+					  // Note that Javascript allows us to access the constant
+					  // using square brackets and a string value as its
+					  // "property."
+					  travelMode: google.maps.TravelMode[selectedMode]
+				  };
+				  directionsService.route(request, function(response, status) {
+					if (status == google.maps.DirectionsStatus.OK) {
+					  directionsDisplay.setDirections(response);
+					}
+				  });
+				  
+				  var documentBody = (($.browser.chrome)||($.browser.safari)) ? document.body : document.documentElement;
+				  $(documentBody).animate({scrollTop: $('#itineraireShow').offset().top-90}, 2000);
+				}
+				
+				///btn itineraire
+				 $("input[name=CalcItin]").click(function(){
+						calcRoute();
+				});
+				
+				google.maps.event.addDomListener(window, 'load', initialize);
+		 };
 	
 	</script>
 	
