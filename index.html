@@ -11,8 +11,7 @@
 	<link rel="apple-touch-icon" sizes="72x72" href="img/jqtouch.png" /><!-- 72x72-->
 	<link rel="apple-touch-icon" sizes="114x114" href="img/jqtouch.png" /><!-- 114x144-->
 	
-	
-	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="js/jquery-1.9.1.min.js"></script>
 	
 	<!-- jQuery UI Map v3 -->
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
@@ -25,17 +24,17 @@
  
  
 	<script language="javascript">
+		
 		var IciLat;
 		var IciLong;
 		var map = null; 
 	
 		if (navigator.geolocation){
-	 	  navigator.geolocation.getCurrentPosition(successCallback, errorCallback, { maximumAge: 3000, timeout:3000, enableHighAccuracy: true });
+			navigator.geolocation.getCurrentPosition(successCallback, errorCallback, { maximumAge: 3000, timeout:3000, enableHighAccuracy: true });
 		}else{
-		  alert("Votre navigateur ne prend pas en compte la géolocalisation HTML5");
-		}   
-		
-	 	
+			alert("Votre navigateur ne prend pas en compte la géolocalisation HTML5");
+		}
+
 		function successCallback(position){
 			
 			/*if (error == true) {
@@ -124,19 +123,19 @@
 		 }; 
 	 
 		function errorCallback(error){
-		  switch(error.code){
-			case error.PERMISSION_DENIED:
-			  alert("L'utilisateur n'a pas autorisé l'accès à sa position");
-			  //successCallback(position='0',error=true);
-			  break;     
-			case error.POSITION_UNAVAILABLE:
-			  alert("L'emplacement de l'utilisateur n'a pas pu être déterminé");
-			  //successCallback(position='0',error=true);
-			  break;
-			case error.TIMEOUT:
-			  alert("Le service n'a pas répondu à temps");
-			  //successCallback(position='0',error=true);
-			  break;
+			switch(error.code){
+				case error.PERMISSION_DENIED:
+				  alert("L'utilisateur n'a pas autorisé l'accès à sa position");
+				  //successCallback(position='0',error=true);
+				  break;     
+				case error.POSITION_UNAVAILABLE:
+				  alert("L'emplacement de l'utilisateur n'a pas pu être déterminé");
+				  //successCallback(position='0',error=true);
+				  break;
+				case error.TIMEOUT:
+				  alert("Le service n'a pas répondu à temps");
+				  //successCallback(position='0',error=true);
+				  break;
 			}
 		};
 	
@@ -156,13 +155,13 @@
 
 <!-- HOME -->
 <div data-role="page" class="page-tlv" id="home">
-	<div  data-role="header" data-position="fixed">
-		<div id="header-tlv"><img src="img/logo-tlv.jpg"  height="45" /></div>
+	
+	<div data-role="header" data-position="fixed">
+		<div id="header-tlv"><img src="images/logo-tlv.png"  height="45" /></div>
 		<div id="header-sub-tlv">porquerolles <span class="tiret">-</span> port cros <span class="tiret">-</span> le levant</div>
 	</div>
 	  
 	<div data-role="content" class="page-tlv">
-	  
 		<div id="nav-home-tlv">
 			<div class="bouton">
 				<a href="#horaires" data-transition="flip"><img src="img/btn/btn_horaires.png" border="0" /></a>
@@ -183,11 +182,10 @@
 				<a href="#meteoTLV"  data-transition="flip"><img src="img/btn/btn_meteo.png" border="0" /></a>
 			</div>
 			<div style="clear:both"></div>
-		</div> 
-		
+		</div>
 	</div>
 	  
-	<div data-role="footer" data-position="fixed" style="background-image:none; background-color:transparent;border-top:0px" id="footer-tlv"><img src="img/footer.png" width="100%" id="img-footer" /></div>
+	<div data-role="footer" data-position="fixed" id="footer-tlv"><div class="bgfooterleft">&nbsp;</div><div id="imgfooter"><img src="img/footer.png" id="img-footer" /></div><div class="bgfooterright">&nbsp;</div></div>
   
 </div>
 <!-- FIN HOME -->
@@ -196,7 +194,7 @@
 <!-- HORAIRES -->
 <div data-role="page" id="horaires" data-add-back-btn="true">
 	<div data-role="header" data-position="fixed">
-		<div id="header-tlv"><img src="img/logo-tlv.jpg"  height="45" /></div>
+		<div id="header-tlv"><img src="images/logo-tlv.png"  height="45" /></div>
 		<a data-role="button" data-direction="reverse" data-rel="back" href="#home" data-icon="arrow-l" data-iconpos="left" style="margin-top:4px">Accueil</a>
 		<div id="header-sub-tlv">porquerolles <span class="tiret">-</span> port cros <span class="tiret">-</span> le levant</div>
 	</div>
@@ -212,13 +210,13 @@
 		</select>
 		
 		<label for="date_depart">Horaires du :</label>
-		<input value="" name="date_depart" id="date_depart" type="date" data-role="datebox" data-options='{"mode": "calbox","useFocus": true, "calShowWeek": true}'>
+		<input value="<?=date("d/m/Y")?>" name="date_depart" id="date_depart" type="date" data-role="datebox" data-options='{"mode": "calbox","useFocus": true, "calShowWeek": true}'>
 		<p>&nbsp;</p>
 		<div id="bouton_submit"><input type="button" class="bt-valid" value="Consulter les horaires" id="btnHoraireGo" /></div>
 		<div id="infoHoraire">&nbsp;</div>
 	</div>
 	
-	<div data-role="footer" data-position="fixed" style="background-image:none; background-color:transparent;border-top:0px" id="footer-tlv"><img src="img/footer.png" width="100%" id="img-footer" /></div>
+	<div data-role="footer" data-position="fixed" id="footer-tlv"><div class="bgfooterleft">&nbsp;</div><div id="imgfooter"><img src="img/footer.png" id="img-footer" /></div><div class="bgfooterright">&nbsp;</div></div>
   
 </div>
 <!-- FIN HORAIRES -->
@@ -228,7 +226,7 @@
 <div data-role="page" id="tarifs" data-add-back-btn="true">
 	
 	<div data-role="header" data-position="fixed">
-		<div id="header-tlv"><img src="img/logo-tlv.jpg"  height="45" /></div>
+		<div id="header-tlv"><img src="images/logo-tlv.png"  height="45" /></div>
 		<a data-role="button" data-direction="reverse" data-rel="back" href="#home" data-icon="arrow-l" data-iconpos="left" style="margin-top:4px">Accueil</a>
 		<div id="header-sub-tlv">porquerolles <span class="tiret">-</span> port cros <span class="tiret">-</span> le levant</div>
 	</div>
@@ -240,6 +238,7 @@
 				url:'http://www.tlv-tvm.com/iphone/content.php?page=tarifs',
 				type:'GET',
 				success:function(tarifs) {
+					alert(tarifs);
 					$("#tarification").append(tarifs);	
 				   })
 				},
@@ -250,7 +249,7 @@
 		</script>
 	</div>
 	
-	<div data-role="footer" data-position="fixed" style="background-image:none; background-color:transparent;border-top:0px" id="footer-tlv"><img src="img/footer.png" width="100%" id="img-footer" /></div>
+	<div data-role="footer" data-position="fixed" id="footer-tlv"><div class="bgfooterleft">&nbsp;</div><div id="imgfooter"><img src="img/footer.png" id="img-footer" /></div><div class="bgfooterright">&nbsp;</div></div>
   
 </div>
 <!-- FIN TARIFS -->
@@ -259,7 +258,7 @@
 <!-- ALERTES -->
 <div data-role="page" id="alertes" data-add-back-btn="true">
 	<div data-role="header" data-position="fixed">
-		<div id="header-tlv"><img src="img/logo-tlv.jpg" height="45" /></div>
+		<div id="header-tlv"><img src="images/logo-tlv.png" height="45" /></div>
 		<a data-role="button" data-direction="reverse" data-rel="back" href="#home" data-icon="arrow-l" data-iconpos="left" style="margin-top:4px">Accueil</a>
       	<div id="header-sub-tlv">porquerolles <span class="tiret">-</span> port cros <span class="tiret">-</span> le levant</div>
 	</div>
@@ -267,7 +266,7 @@
 	<div data-role="content" class="page-content-tlv">
 		<H1>Alertes Info TLV</H1>
 		
-		<img src="http://www.tlv-tvm.com/images/Visuel-Paoramique-Intemperies.jpg" class="img_border" width="100%" />
+		<img src="images/Visuel-Paoramique-Intemperies.jpg" class="img_border" width="100%" />
 		
 		<div class="content">
 			<div id="infoMeteo"></div>
@@ -288,7 +287,7 @@
 		</div>
 	</div>
 	
-	<div data-role="footer"  data-position="fixed"  style="background-image:none; background-color:transparent;border-top:0px" id="footer-tlv" ><img src="img/footer.png"  width="100%"  id="img-footer" /></div>
+	<div data-role="footer" data-position="fixed" id="footer-tlv"><div class="bgfooterleft">&nbsp;</div><div id="imgfooter"><img src="img/footer.png" id="img-footer" /></div><div class="bgfooterright">&nbsp;</div></div>
   
 </div>
 <!-- FIN ALERTES -->
@@ -297,7 +296,7 @@
 <!-- infosTlv -->
 <div data-role="page" id="infosTlv" data-add-back-btn="true">
 	<div data-role="header" data-position="fixed">
-		<div id="header-tlv"><img src="img/logo-tlv.jpg"  height="45" /></div>
+		<div id="header-tlv"><img src="images/logo-tlv.png"  height="45" /></div>
 		<a data-role="button" data-direction="reverse" data-rel="back" href="#home" data-icon="arrow-l" data-iconpos="left" style="margin-top:4px">Accueil</a>
 		<div id="header-sub-tlv">porquerolles <span class="tiret">-</span> port cros <span class="tiret">-</span> le levant</div>
 	</div>
@@ -317,14 +316,14 @@
     	</ul>
 	</div>
   
-	<div data-role="footer"  data-position="fixed"  style="background-image:none; background-color:transparent;border-top:0px" id="footer-tlv" ><img src="img/footer.png"  width="100%"  id="img-footer" /></div>
+	<div data-role="footer" data-position="fixed" id="footer-tlv"><div class="bgfooterleft">&nbsp;</div><div id="imgfooter"><img src="img/footer.png" id="img-footer" /></div><div class="bgfooterright">&nbsp;</div></div>
   
 </div>
 
 <!-- Page Accessibilité -->
 <div data-role="page" id="page2" data-add-back-btn="true">
 	<div data-role="header" data-position="fixed">
-		<div id="header-tlv"><img src="img/logo-tlv.jpg"  height="45" /></div>
+		<div id="header-tlv"><img src="images/logo-tlv.png"  height="45" /></div>
 		<a data-role="button" data-direction="reverse" data-rel="back" href="#infosTlv" data-icon="arrow-l" data-iconpos="left" style="margin-top:4px">Retour</a>
 		<div id="header-sub-tlv">porquerolles <span class="tiret">-</span> port cros <span class="tiret">-</span> le levant</div>
 	</div>
@@ -339,12 +338,12 @@
 		Le circuit "vision sous-marine" n'est cependant pas accessible aux personnes en fauteuil roulant et malvoyantes.
 	</div>
 	
-	<div data-role="footer"  data-position="fixed"  style="background-image:none; background-color:transparent;border-top:0px" id="footer-tlv" ><img src="img/footer.png"  width="100%"  id="img-footer" /></div>
+	<div data-role="footer" data-position="fixed" id="footer-tlv"><div class="bgfooterleft">&nbsp;</div><div id="imgfooter"><img src="img/footer.png" id="img-footer" /></div><div class="bgfooterright">&nbsp;</div></div>
   
 </div>
 <div data-role="page" id="page3" data-add-back-btn="true">
 	<div data-role="header" data-position="fixed">
-		<div id="header-tlv"><img src="img/logo-tlv.jpg"  height="45" /></div>
+		<div id="header-tlv"><img src="images/logo-tlv.png"  height="45" /></div>
 		<a data-role="button" data-direction="reverse" data-rel="back" href="#infosTlv" data-icon="arrow-l" data-iconpos="left" style="margin-top:4px">Retour</a>
 		<div id="header-sub-tlv">porquerolles <span class="tiret">-</span> port cros <span class="tiret">-</span> le levant</div>
 	</div>
@@ -403,29 +402,37 @@
 		</p>
 	</div>
 	
-	<div data-role="footer"  data-position="fixed"  style="background-image:none; background-color:transparent;border-top:0px" id="footer-tlv" ><img src="img/footer.png"  width="100%"  id="img-footer" /></div>
+	<div data-role="footer" data-position="fixed" id="footer-tlv"><div class="bgfooterleft">&nbsp;</div><div id="imgfooter"><img src="img/footer.png" id="img-footer" /></div><div class="bgfooterright">&nbsp;</div></div>
   
 </div>
 
 <div data-role="page" id="page4" data-add-back-btn="true">
 	<div data-role="header" data-position="fixed">
-		<div id="header-tlv"><img src="img/logo-tlv.jpg"  height="45" /></div>
+		<div id="header-tlv"><img src="images/logo-tlv.png"  height="45" /></div>
 		<a data-role="button" data-direction="reverse" data-rel="back" href="#infosTlv" data-icon="arrow-l" data-iconpos="left" style="margin-top:4px">Retour</a>
 		<div id="header-sub-tlv">porquerolles <span class="tiret">-</span> port cros <span class="tiret">-</span> le levant</div>
 	</div>
 	
 	<div data-role="content" class="page-content-tlv">
 		<div style="margin: 0 auto 15px; width: 95px;"><img src="images/logo-ParcNationalPortCros.jpg" alt="Parc National Port Cros" /></div>
-		Cr&eacute;&eacute; le 14 d&eacute;cembre 1963, le Parc national de Port-Cros, qui occupe 700 ha de terres &eacute;merg&eacute;es et 1288 ha de surfaces marines, est l'un des deux plus anciens Parc Nationaux de France et le premier parc marin europ&eacute;en. Il comprend l'&icirc;le de Port-Cros, celle de Bagaud, les &icirc;lots de la Gabini&egrave;re et du Rascas ainsi qu'un  p&eacute;rim&egrave;tre marin de 600 m de large.
-		Le 6 mai 2012 a &eacute;t&eacute; publi&eacute; au journal officiel de la r&eacute;publique, le d&eacute;cret n° 2012-649 qui, en application de la loi d'avril 2006, r&eacute;forme le parc national en profondeur. A l'issue d'une concertation avec les acteurs locaux, l'espace du Parc national se trouve totalement reconfigur&eacute;. Il comporte aujourd'hui :
-		<ul>
-			<li>deux &laquo; cœurs &raquo;, espaces de protection et d'accueil du public, constitu&eacute;s de l' &icirc;le de Port-Cros et des espaces naturels propri&eacute;t&eacute; de l'Etat de l'&icirc;le Porquerolles ainsi que leur frange marine jusqu'&agrave; une distance de 600 m,</li>
-			<li>une &laquo; aire potentielle d'adh&eacute;sion &raquo;, espace de projet de d&eacute;veloppement durable &agrave; &eacute;laborer avec les onze communes qui le composent,</li>
-			<li>une &laquo; aire maritime adjacente &raquo; r&eacute;plique en mer de l'aire d'adh&eacute;sion, qui couvre l'espace marin au droit de ces onze communes et &eacute;tendue jusqu'&agrave; 3 milles marins au sud des &icirc;les.</li>
-		</ul>
+		<h1>Parc national de Port-Cros, insulaire,  littoral et marin</h1>
+		<p>
+		Le cœur du Parc national de Port-Cros s’&eacute;tend sur 1 700 ha de terres &eacute;merg&eacute;es et 2 900 ha de surfaces marines. Il comprend une partie de l'&icirc;le Porquerolles, les &icirc;les de Port-Cros, de Bagaud, les &icirc;lots de la Gabini&egrave;re et du Rascas et un p&eacute;rim&egrave;tre marin qui les enserre.
+		</p>
+		<p>
+		Royaume des oiseaux marins, le Parc abrite 144 esp&egrave;ces et offre un milieu propice &agrave; la nidification du Puffin
+		cendr&eacute;, esp&egrave;ce migratrice rare dont la colonie de Porquerolles est la plus importante des côtes françaises.
+		</p>
+		<p>
+		180 esp&egrave;ces de poissons y prosp&egrave;rent dont le M&eacute;rou brun 
+		Quant &agrave; la flore, 602 esp&egrave;ces terrestres sont r&eacute;pertori&eacute;es dont certaines rares, comme le genêt &agrave; feuille de lin ou end&eacute;miques comme la Dauphinelle de Requien, ainsi que 500 esp&egrave;ces d’algues.
+		Une biodiversit&eacute; exceptionnelle et fragile, &agrave; d&eacute;couvrir avec respect. 
+		</p>
+		<p>EN 2013, LE PARC NATIONAL F&Egrave;TE SON CINQUANTENAIRE</p>
+		<a href="http://50ans.portcrosparcnational.fr" target="_blank">http://50ans.portcrosparcnational.fr</a>
 	</div>
 	
-	<div data-role="footer"  data-position="fixed"  style="background-image:none; background-color:transparent;border-top:0px" id="footer-tlv" ><img src="img/footer.png"  width="100%"  id="img-footer" /></div>
+	<div data-role="footer" data-position="fixed" id="footer-tlv"><div class="bgfooterleft">&nbsp;</div><div id="imgfooter"><img src="img/footer.png" id="img-footer" /></div><div class="bgfooterright">&nbsp;</div></div>
   
 </div>
 
@@ -435,99 +442,66 @@
 <!-- meteoTLV -->
 <div data-role="page" id="meteoTLV" data-add-back-btn="true">
 	<div data-role="header" data-position="fixed">
-		<div id="header-tlv"><img src="img/logo-tlv.jpg"  height="45" /></div>
+		<div id="header-tlv"><img src="images/logo-tlv.png"  height="45" /></div>
        	<a data-role="button" data-direction="reverse" data-rel="back" href="#home" data-icon="arrow-l" data-iconpos="left" style="margin-top:4px">Accueil</a>
        	<div id="header-sub-tlv">porquerolles <span class="tiret">-</span> port cros <span class="tiret">-</span> le levant</div>
   	</div>
   
   
-  <div data-role="content" class="page-content-tlv">
-  	 <h2>M&eacute;t&eacute;o Hyeres / Porquerolles</h2>
-     <div id="descMeteo">
-      
-     
-     </div>
-    <script language="javascript">
-	 	//get Ajax de la m&eacute;t&eacute;o
-		var fluxMeteo;
-		var AffMeteo;
-		
-		 
-		$.ajax({
-			url:'http://www.tlv-tvm.com/iphone/proxy.php',
-			dataType:'xml',
-			type:'GET',
-			success:function(xml) {
-				$(xml).find('meteo').each(function() {
+	<div data-role="content" class="page-content-tlv">
+		<h2>M&eacute;t&eacute;o Hyeres / Porquerolles</h2>
+     	<div id="descMeteo"></div>
+		<script language="javascript">
+		 	//get Ajax de la m&eacute;t&eacute;o
+			var fluxMeteo;
+			var AffMeteo;
+			
+			$.ajax({
+				url:'http://www.tlv-tvm.com/iphone/proxy.php',
+				dataType:'xml',
+				type:'GET',
+				success:function(xml) {
+					$(xml).find('meteo').each(function() {
+						var DateMeteo =  $(this).attr('date');
+						var PictoMidi = $(this).attr('pictos_midi');
+						var TempMatin = $(this).attr('tempe_matin');
+						var TempMidi = $(this).attr('tempe_midi');
+						var TempSoir = $(this).attr('tempe_soir');
+						
+						$("#descMeteo").append("<span class='ladate'>Le "+DateMeteo+"</span><p><img class='"+PictoMidi+"' src='' width='128'  /><br /><span class='info'>Matin : "+TempMatin+"&deg;<br>Midi : "+TempMidi+"&deg;<br>Soir : "+TempSoir+"&deg;<br></span></p><hr>");
+						
+					})
+				   
+				   	$("img.soleil").attr('src','img/meteo/soleil.png');
+					$("img.voile").attr('src','img/meteo/voile.png');
+					$("img.nuageux").attr('src','img/meteo/nuageux.png');
+					$("img.couvert").attr('src','img/meteo/couvert.png');
 					
-					var DateMeteo =  $(this).attr('date');
-					var PictoMidi = $(this).attr('pictos_midi');
-					var TempMatin = $(this).attr('tempe_matin');
-					var TempMidi = $(this).attr('tempe_midi');
-					var TempSoir = $(this).attr('tempe_soir');
+					$("img.brouillard").attr('src','img/meteo/couvert.png');
+					$("img.brouillardgivrant").attr('src','img/meteo/couvert.png');
+					$("img.neifefaible").attr('src','img/meteo/averseneige.png');
+					$("img.neigemoderer").attr('src','img/meteo/averseneige.png');
 					
-					//tempe_matin="11.7" namepictos_matin="D&eacute;gag&eacute;"   pictos_matin="soleil" tempe_midi="15.8" namepictos_midi="D&eacute;gag&eacute;" pictos_midi="soleil" tempe_apmidi="17.9" namepictos_apmidi="Nuageux"   pictos_apmidi="nuageux" tempe_soir="16.9" namepictos_soir="Nuageux"   pictos_soir="nuageux" 
+					$("img.neigeforte").attr('src','img/meteo/averseneige.png');
 					
-					$("#descMeteo").append("<span class='ladate'>Le "+DateMeteo+"</span><p><img class='"+PictoMidi+"' src='' width='128'  /><br /><span class='info'>Matin : "+TempMatin+"&deg;<br>Midi : "+TempMidi+"&deg;<br>Soir : "+TempSoir+"&deg;<br></span></p><hr>");     
 					
-			   })
-			   
-			   
-			   
-			   ///traitement des pictos
-			   /*
-			   soleil = Ciel d&eacute;gag&eacute;
-				voile = Ciel voil&eacute;
-				nuageux = Ciel nuageux
-				couvert = Ciel couvert
-				brouillard = couvert
-				brouillardgivrant = couvert
-				neifefaible = averseneige
-				neigemoderer = averseneige
-				neigeforte = averseneige
-				pluiefaible = Pluie faible
-				pluiemoderer = pluiefaible
-				pluieforte = pluieforte
-				verglas = Verglas
-				averse = pluiefaible
-				averseneige = averseneige
-				orageloc =orageloc
-				oragefort = Violents orages
-				*/
-				$("img.soleil").attr('src','img/meteo/soleil.png');
-				$("img.voile").attr('src','img/meteo/voile.png');
-				$("img.nuageux").attr('src','img/meteo/nuageux.png');
-				$("img.couvert").attr('src','img/meteo/couvert.png');
-				
-				$("img.brouillard").attr('src','img/meteo/couvert.png');
-				$("img.brouillardgivrant").attr('src','img/meteo/couvert.png');
-				$("img.neifefaible").attr('src','img/meteo/averseneige.png');
-				$("img.neigemoderer").attr('src','img/meteo/averseneige.png');
-				
-				$("img.neigeforte").attr('src','img/meteo/averseneige.png');
-				
-				
-				$("img.pluiefaible").attr('src','img/meteo/pluiefaible.png');
-				$("img.pluiemoderer").attr('src','img/meteo/pluiefaible.png');
-				$("img.pluieforte").attr('src','img/meteo/pluieforte.png');
-				$("img.verglas").attr('src','img/meteo/pluieforte.png');
-				$("img.averse").attr('src','img/meteo/pluiefaible.png');
-				$("img.averseneige").attr('src','img/meteo/averseneige.png');
-				$("img.orageloc").attr('src','img/meteo/orageloc.png');
-				$("img.oragefort").attr('src','img/meteo/orageloc.png');
-			},
-			error:function() {
-				alert("Aucun flux trouv&eacute;");
-			}
-		});
-      
-		 
-		
-	 </script>
-  </div>
-  
-  
-<div data-role="footer"  data-position="fixed"  style="background-image:none; background-color:transparent;border-top:0px" id="footer-tlv" ><img src="img/footer.png"  width="100%"  id="img-footer" /></div>
+					$("img.pluiefaible").attr('src','img/meteo/pluiefaible.png');
+					$("img.pluiemoderer").attr('src','img/meteo/pluiefaible.png');
+					$("img.pluieforte").attr('src','img/meteo/pluieforte.png');
+					$("img.verglas").attr('src','img/meteo/pluieforte.png');
+					$("img.averse").attr('src','img/meteo/pluiefaible.png');
+					$("img.averseneige").attr('src','img/meteo/averseneige.png');
+					$("img.orageloc").attr('src','img/meteo/orageloc.png');
+					$("img.oragefort").attr('src','img/meteo/orageloc.png');
+				},
+				error:function() {
+					alert("Aucun flux trouv&eacute;");
+				}
+			});
+		</script>
+	</div>
+	
+	<div data-role="footer"  data-position="fixed"  style="background-image:none; background-color:transparent;border-top:0px" id="footer-tlv" ><img src="img/footer.png"  width="100%"  id="img-footer" /></div>
   
 </div>
 <!-- FIN meteoTLV -->
@@ -536,15 +510,12 @@
 <!-- GEOLOC -->
 <div data-role="page" id="geoLoc" data-add-back-btn="true">
 	<div data-role="header" data-position="fixed">
-		
-		<div id="header-tlv"><img src="img/logo-tlv.jpg"  height="45" /></div>
-		
+		<div id="header-tlv"><img src="images/logo-tlv.png"  height="45" /></div>
 		<a data-role="button" data-direction="reverse" data-rel="back" href="#home" data-icon="arrow-l" data-iconpos="left" style="margin-top:4px">Accueil</a>
       	<div id="header-sub-tlv">porquerolles <span class="tiret">-</span> port cros <span class="tiret">-</span> le levant</div>
 	</div>
 	
 	<div data-role="content" class="page-content-tlv">
-		
 		<h2>Itin&eacute;raires</h2>
 		<p>
 			Pour vous rendre &agrave; la Tour Fondue ou au Port de Hy&egrave;res en bus, consultez les horaires sur:<br />
@@ -581,19 +552,16 @@
 		<div id="laCarte" style="border:1px solid #FFF;height:280px;width:100%;margin:auto"></div>
 	</div>
 	
-	<script type="text/javascript" src="js/jquery.browser_detect.js"></script>
 	<script type="text/javascript">
-		var isAndroid = /android/i.test(navigator.userAgent.toLowerCase());
-		var isiDevice = /ipad|iphone|ipod/i.test(navigator.userAgent.toLowerCase());
-		if (isAndroid) {
+		if (navigator.userAgent.match(/android/i)) {
 			$("#appli").attr('href', 'https://play.google.com/store/apps/details?id=fr.cityway.android.rmtt');
-		} else if (isiDevice) {
+		} else if (navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/iPad/i)) {
 			$("#appli").attr('href', 'https://itunes.apple.com/fr/app/reseau-mistral/id429896529?mt=8');
 		}
 	</script>			 
   
   
-	<div data-role="footer"  data-position="fixed"  style="background-image:none; background-color:transparent;border-top:0px" id="footer-tlv" ><img src="img/footer.png"  width="100%"  id="img-footer" /></div>
+	<div data-role="footer" data-position="fixed" id="footer-tlv"><div class="bgfooterleft">&nbsp;</div><div id="imgfooter"><img src="img/footer.png" id="img-footer" /></div><div class="bgfooterright">&nbsp;</div></div>
   
 </div>
 <!-- FIN GEOLOC -->
