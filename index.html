@@ -23,7 +23,7 @@
  
  
  
-	<script language="javascript">
+	<script type="text/javascript">
 		
 		var IciLat;
 		var IciLong;
@@ -497,7 +497,7 @@
 		</script>
 	</div>
 	
-	<div data-role="footer"  data-position="fixed"  style="background-image:none; background-color:transparent;border-top:0px" id="footer-tlv" ><img src="img/footer.png"  width="100%"  id="img-footer" /></div>
+	<div data-role="footer" data-position="fixed" id="footer-tlv"><div class="bgfooterleft">&nbsp;</div><div id="imgfooter"><img src="img/footer.png" id="img-footer" /></div><div class="bgfooterright">&nbsp;</div></div>
   
 </div>
 <!-- FIN meteoTLV -->
@@ -670,7 +670,7 @@ $("#btnHoraireGo").click(function(){
 		var an = DateTxt[2];
 		
 		$.ajax({
-		  url: 'checkHoraire.php',
+		  url: 'http://www.tlv-tvm.com/iphone/checkHoraire.php',
 		  type: "POST",
 		  data:{idch:idCatLieux, datedep: ''+an+'-'+mois+'-'+jour },
 		  success: function(htmlReturn) {
