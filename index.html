@@ -126,15 +126,15 @@
 		  switch(error.code){
 			case error.PERMISSION_DENIED:
 			  alert("L'utilisateur n'a pas autorisé l'accès à sa position");
-			  //successCallback(position='0',error=true);
+			  successCallback2();
 			  break;     
 			case error.POSITION_UNAVAILABLE:
 			  alert("L'emplacement de l'utilisateur n'a pas pu être déterminé");
-			  //successCallback(position='0',error=true);
+			  successCallback2();
 			  break;
 			case error.TIMEOUT:
 			  alert("Le service n'a pas répondu à temps");
-			  successCallback2()
+			  successCallback2();
 			  break;
 			}
 		};
@@ -687,14 +687,12 @@
 			});
 			*/
 			$('.ui-content').css(
-			{	'background-image':'url(img/bg-appli-landscape.png) !important ',
+			{	'background-image':'url(img/images/TLV-BG-MER.jpg) !important ',
 				'background-color':'#004d91  !important',
-				'background-repeat':'no-repeat  !important',
-				' background-position':'top right  !important ',
-				' background-attachment':'scroll !important ',
-				'background-size':'100% 100% !important '
+				'background-repeat':'repeat-x  !important',
+				' background-position':'top left  !important ',
+				' background-attachment':'scroll !important '
 			});
-			
         } else {
 
             // Orientation Portrait
@@ -761,7 +759,7 @@
 
 	// Calcul de largeur de l'écran pour le footer
 	var largeurFooter = 0;
-	var NavLar = $(window).width();
+	var NavLar = $(document).width();
 	largeurFooter = (NavLar - 320) / 2;
 	//largeurFooter = largeurFooter + ' px';
 	$("#footer-tlv .bgfooterleft").css({
