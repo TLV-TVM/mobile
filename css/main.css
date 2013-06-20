@@ -175,7 +175,7 @@ body.landscape{
 /* FIN Page Informations */
 
 /* Bouton de validation */
-#bouton_submit .ui-btn{
+.bouton_submit .ui-btn{
 	background: #414f55; /* Old browsers */
 	background: -moz-linear-gradient(top,  #414f55 0%, #2a3235 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#414f55), color-stop(100%,#2a3235)); /* Chrome,Safari4+ */
@@ -195,7 +195,7 @@ body.landscape{
 	border-radius: 5px;
 }
 
-#bouton_submit .ui-btn:hover {
+.bouton_submit .ui-btn:hover {
 	background: #2a3235; /* Old browsers */
 	background: -moz-linear-gradient(top,  #2a3235 0%, #414f55 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2a3235), color-stop(100%,#414f55)); /* Chrome,Safari4+ */
@@ -206,13 +206,13 @@ body.landscape{
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2a3235', endColorstr='#414f55',GradientType=0 ); /* IE6-9 */
 }
 
-#bouton_submit .ui-btn-text {
+.bouton_submit .ui-btn-text {
 	
 	text-shadow: 0 0 0;
 	color: #FFF;
 }
 
-#bouton_submit .ui-btn-up-c, #bouton_submit .ui-btn-hover-c {
+.bouton_submit .ui-btn-up-c, .bouton_submit .ui-btn-hover-c {
 	border: none;
 }
 

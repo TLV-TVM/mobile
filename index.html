@@ -11,7 +11,7 @@
 	<link rel="apple-touch-icon" sizes="72x72" href="img/jqtouch.png" /><!-- 72x72-->
 	<link rel="apple-touch-icon" sizes="114x114" href="img/jqtouch.png" /><!-- 114x144-->
 	
-	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="js/jquery-1.9.1.min.js"></script>
 	
 	<!-- jQuery UI Map v3 -->
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
@@ -298,7 +298,7 @@
 		<label for="date_depart">Horaires du :</label>
 		<input value="" name="date_depart" id="date_depart" type="date" data-role="datebox" data-options='{"mode": "calbox","useFocus": true, "calShowWeek": true}'>
 		<p>&nbsp;</p>
-		<div id="bouton_submit"><input type="button" class="bt-valid" value="Consulter les horaires" id="btnHoraireGo" /></div>
+		<div class="bouton_submit"><input type="button" class="bt-valid" value="Consulter les horaires" id="btnHoraireGo" /></div>
 		<div id="infoHoraire">&nbsp;</div>
 	</div>
 	
@@ -628,12 +628,12 @@
 				<option value="BICYCLING">V&eacute;lo</option>
 			</select>
 		</p>
-		<div id="bouton_submit">
+		<div class="bouton_submit">
 			<input type="button" id="CalcItin" class="bt-valid"  name="CalcItin"  data-icon="search" value="Voir l'itin&eacute;raire">
 		</div>
 		<p>&nbsp;</p>
-		<div id="itineraireShow" style="   color:#FFF"></div><p>&nbsp;</p>
-		<div id="laCarte" style="border:1px solid #FFF;height:280px;width:100%;margin:auto"></div>
+		<div id="itineraireShow" style="color:#FFF"> </div><p>&nbsp;</p>
+		<div id="laCarte" style="border:1px solid #FFF;height:280px;width:100%;margin:auto"> </div>
 	</div>
 	
 	<script type="text/javascript">
@@ -650,125 +650,117 @@
 </div>
 <!-- FIN GEOLOC -->
 
+
 <script type="text/javascript" charset="utf-8">
 
-$(document).bind("mobileinit", function(){
-	$.mobile.touchOverflowEnabled = true;
-  	$.mobile.orientationChangeEnabled = false;
-  	$.mobile.allowCrossDomainPages = true;
-  	
-});
+	$(document).bind("mobileinit", function(){
+		$.mobile.touchOverflowEnabled = true;
+	  	$.mobile.orientationChangeEnabled = false;
+	  	$.mobile.allowCrossDomainPages = true;
+	});
 
+    //cache the viewport tag if the user is using an iPhone
+    var $viewport = $('head').children('meta[name="viewport"]');
 
+    //bind an event handler to the window object for the orientationchange event
+    $(window).bind('orientationchange', function() {
+        if (window.orientation == 90 || window.orientation == -90 || window.orientation == 270) {
+
+            // Orientation landscape
+            $viewport.attr('content', 'height=device-width,width=device-height,initial-scale=1.0,maximum-scale=1.0');
+			$("body").removeClass("portrait");
+			$("body").addClass("landscape");
+			$("body").css("landscape");
+			$("#img-footer").attr("src","img/footer-landscape.png");
+			$("#nav-home").css('margin-top','0px');
+			$("#footer-tlv").css('display','none');
+			/*
+			$('body').css('background-image', 'url("img/bg-appli-landscape.png")');
+			
+			$('body').css(
+			{	'background-image':'url(img/bg-appli-landscape.png) !important ',
+				'background-color':'#004787  !important',
+				'background-repeat':'no-repeat  !important',
+				' background-position':'center center  !important ',
+				' background-attachment':'scroll !important ',
+				'background-size':'100% 100% !important '
+			});
+			*/
+			$('.ui-content').css(
+			{	'background-image':'url(img/bg-appli-landscape.png) !important ',
+				'background-color':'#004d91  !important',
+				'background-repeat':'no-repeat  !important',
+				' background-position':'top right  !important ',
+				' background-attachment':'scroll !important ',
+				'background-size':'100% 100% !important '
+			});
+			
+        } else {
+
+            // Orientation Portrait
+            $viewport.attr('content', 'height=device-height,width=device-width,initial-scale=1.0,maximum-scale=1.0');
+			
+			$("body").removeClass("landscape");
+			$("body").addClass("portrait");
  
- ////carte
+			$("#img-footer").attr("src","img/footer.png");
+			$("#nav-home").css('margin-top','110px');
+			$("#footer-tlv").css('display','');
+			/*
+			$('body').css('background-image', 'url("img/bg-appli.png")');
+			
+			$('body').css(
+			{	'background-image':'url(img/bg-appli.png) !important ',
+				'background-color':'#004787  !important',
+				'background-repeat':'no-repeat  !important',
+				' background-position':'center center  !important ',
+				' background-attachment':'scroll !important ',
+				'background-size':'100% 100% !important '
+			});
+			*/
+			$('.ui-content').css(
+			{	'background-image':'url(img/bg-appli-content.png) !important ',
+				'background-color':'#004787  !important',
+				'background-repeat':'no-repeat  !important',
+				' background-position':'center center  !important ',
+				' background-attachment':'scroll !important ',
+				'background-size':'100% 100% !important '
+			});
+        }
 
-//if (navigator.userAgent.match(/iPhone/i)) {
+    //trigger an orientationchange event on the window object to initialize this code (basically in-case the user opens the page in landscape mode)
+    }).trigger('orientationchange');
 
-        //cache the viewport tag if the user is using an iPhone
-        var $viewport = $('head').children('meta[name="viewport"]');
+	// Verrouillage portrait
+	function shouldRotateToOrientation(interfaceOrientation) {
+	    return (1 === interfaceOrientation);
+	}		
 
-        //bind an event handler to the window object for the orientationchange event
-        $(window).bind('orientationchange', function() {
-            if (window.orientation == 90 || window.orientation == -90 || window.orientation == 270) {
-
-                //landscape
-                $viewport.attr('content', 'height=device-width,width=device-height,initial-scale=1.0,maximum-scale=1.0');
-				$("body").removeClass("portrait");
-				$("body").addClass("landscape");
-				$("body").css("landscape");
-				$("#img-footer").attr("src","img/footer-landscape.png");
-				$("#nav-home").css('margin-top','0px');
-				$("#footer-tlv").css('display','none');
-				/*
-				$('body').css('background-image', 'url("img/bg-appli-landscape.png")');
-				
-				$('body').css(
-				{	'background-image':'url(img/bg-appli-landscape.png) !important ',
-					'background-color':'#004787  !important',
-    				'background-repeat':'no-repeat  !important',
-   					' background-position':'center center  !important ',
-   					' background-attachment':'scroll !important ',
-    				'background-size':'100% 100% !important '
-				});
-				*/
-				$('.ui-content').css(
-				{	'background-image':'url(img/bg-appli-landscape.png) !important ',
-					'background-color':'#004d91  !important',
-    				'background-repeat':'no-repeat  !important',
-   					' background-position':'top right  !important ',
-   					' background-attachment':'scroll !important ',
-    				'background-size':'100% 100% !important '
-				});
-				
-            } else {
-
-                //portrait
-                $viewport.attr('content', 'height=device-height,width=device-width,initial-scale=1.0,maximum-scale=1.0');
-				
-				$("body").removeClass("landscape");
-				$("body").addClass("portrait");
-	 
-				$("#img-footer").attr("src","img/footer.png");
-				$("#nav-home").css('margin-top','110px');
-				$("#footer-tlv").css('display','');
-				/*
-				$('body').css('background-image', 'url("img/bg-appli.png")');
-				
-				$('body').css(
-				{	'background-image':'url(img/bg-appli.png) !important ',
-					'background-color':'#004787  !important',
-    				'background-repeat':'no-repeat  !important',
-   					' background-position':'center center  !important ',
-   					' background-attachment':'scroll !important ',
-    				'background-size':'100% 100% !important '
-				});
-				*/
-				$('.ui-content').css(
-				{	'background-image':'url(img/bg-appli-content.png) !important ',
-					'background-color':'#004787  !important',
-    				'background-repeat':'no-repeat  !important',
-   					' background-position':'center center  !important ',
-   					' background-attachment':'scroll !important ',
-    				'background-size':'100% 100% !important '
-				});
-            }
-
-        //trigger an orientationchange event on the window object to initialize this code (basically in-case the user opens the page in landscape mode)
-        }).trigger('orientationchange');
-//  }		
-
-//verrouillage portrait
-function shouldRotateToOrientation(interfaceOrientation) {
-    return (1 === interfaceOrientation);
-}		
-
-
-
-/////Core
-$("#btnHoraireGo").click(function(){
-	$("#infoHoraire").html("&nbsp;");
-	var idCatLieux = $('select[name=lieu_depart] option:selected').val();
-	var DateDep = $('input[name=date_depart]').val();
-	// alert("DateDep = "+DateDep);
-	
-	var DateTxt = DateDep.split('/');
-		var jour = DateTxt[0];
-		var mois = DateTxt[1];
-		var an = DateTxt[2];
+	// Check de l'horaire pour les transports
+	$("#btnHoraireGo").click(function(){
+		$("#infoHoraire").html("&nbsp;");
+		var idCatLieux = $('select[name=lieu_depart] option:selected').val();
+		var DateDep = $('input[name=date_depart]').val();
+		// alert("DateDep = "+DateDep);
 		
-		$.ajax({
-		  url: 'http://www.tlv-tvm.com/iphone/checkHoraire.php',
-		  type: "POST",
-		  data:{idch:idCatLieux, datedep: ''+an+'-'+mois+'-'+jour },
-		  success: function(htmlReturn) {
-			$('#infoHoraire').html(htmlReturn);
- 		  }
-		});
-	
-})
+		var DateTxt = DateDep.split('/');
+			var jour = DateTxt[0];
+			var mois = DateTxt[1];
+			var an = DateTxt[2];
+			
+			$.ajax({
+			  url: 'http://www.tlv-tvm.com/iphone/checkHoraire.php',
+			  type: "POST",
+			  data:{idch:idCatLieux, datedep: ''+an+'-'+mois+'-'+jour },
+			  success: function(htmlReturn) {
+				$('#infoHoraire').html(htmlReturn);
+	 		  }
+			});
+		
+	})
 
-	/*var largeurFooter = 0;
+	// Calcul de largeur de l'écran pour le footer
+	var largeurFooter = 0;
 	var NavLar = $(window).width();
 	largeurFooter = (NavLar - 320) / 2;
 	//largeurFooter = largeurFooter + ' px';
@@ -781,6 +773,7 @@ $("#btnHoraireGo").click(function(){
 		'right': 0
 	});
 	
+	// Affichage de la date dans le formulaire
 	var date = new Date();
 	var dateJour = date.getDate();
 	var dateMois = date.getMonth()+1;
@@ -790,7 +783,7 @@ $("#btnHoraireGo").click(function(){
 	var dateAnnee = date.getFullYear();
 	var futDate=dateJour + "/" + dateMois + "/" + dateAnnee;
 	$("#date_depart").val(futDate);
-	*/
+	
 </script>
 
 </body>
